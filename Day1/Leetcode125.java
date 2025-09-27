@@ -7,14 +7,15 @@ public class Leetcode125 {
 
     }
     public static boolean isPalindrome(String s){
-        StringBuilder filtered = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for(char c : s.toCharArray()){
             if(Character.isLetterOrDigit(c)){
-                filtered.append(Character.toLowerCase(c));
+                sb.append(Character.toLowerCase(c));
             }
+
         }
-        String filteredStr = filtered.toString();
-        String reversedStr = filtered.reverse().toString();
-        return filteredStr.equals(reversedStr);
+        String original = sb.toString();
+        String rev = sb.reverse().toString();
+        return original.equals(rev);
     }
 }
