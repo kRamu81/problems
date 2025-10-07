@@ -19,7 +19,7 @@ public class lengthOfLongestSubstring3 {
                 set.remove(s.charAt(start));
                 start++;
             }
-            set.add(c)
+            set.add(c);
             maxlength = Math.max(maxlength, end - start + 1);
         }
         return maxlength;
