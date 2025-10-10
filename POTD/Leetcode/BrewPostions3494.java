@@ -1,5 +1,4 @@
-package POTD;
-import java.util.*;
+package POTD.Leetcode;
 
 public class BrewPostions3494 {
     public static void main(String[] args) {
