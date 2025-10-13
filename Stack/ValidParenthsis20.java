@@ -8,13 +8,14 @@ public class ValidParenthsis20 {
     }
     public static boolean valid(String s){
         Stack<Character> stack = new Stack<>();
-        for(char c: s.toCharArray()){
+        for(char c : s.toCharArray()){
             if(c=='(') stack.push(')');
             else if(c=='{') stack.push('}');
             else if(c=='[') stack.push(']');
-            else
+            else{
                 if(stack.isEmpty() || stack.pop()!=c) return false;
+            }
         }
-        return true;
+        return stack.isEmpty();
     }
 }
