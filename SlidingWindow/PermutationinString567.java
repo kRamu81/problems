@@ -1,6 +1,5 @@
-package Day11;
+
 import java.util.*;
-import java.util.Arrays;
 
 public class PermutationinString567 {
     public static void main(String[] args) {
@@ -26,6 +25,5 @@ public class PermutationinString567 {
             window[s2.charAt(i-s1.length())-'a']--;//remove the left character
         }
         return Arrays.equals(freq,window);
-
     }
 }
