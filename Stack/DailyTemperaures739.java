@@ -14,13 +14,13 @@ public class DailyTemperaures739 {
     public static int[] DailyTemp(int[] temp){
         int n = temp.length;
         int[] ans = new int[n];
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack= new Stack<>();
         for(int i=0;i<n;i++){
-            while(!stack.isEmpty() && temp[stack.peek()]<temp[i]){
-                ans[stack.peek()] = i-stack.peek();
-                stack.pop();
+            while(!stack.isEmpty() && temp[i]>temp[stack.peek()]){
+                int prev = stack.pop();
+                ans[prev] = i-prev;
             }
-            stack.push(i);
+            stack.add(i);
         }
         return ans;
     }
