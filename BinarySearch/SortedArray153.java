@@ -10,9 +10,9 @@ public class SortedArray153 {
             nums[i] = Integer.parseInt(parts[i]);
 
         }
-        System.out.println(sortedarray(nums));
+        System.out.println(findmin(nums));
     }
-    public static int sortedarray(int[] nums){
+    public static int findmin(int[] nums){
         int left =0;
         int right = nums.length-1;
         while(left<right){
