@@ -28,7 +28,6 @@ public class MergeTwoSortedLists21 {
         printList(merged);
     }
 
-    // ✅ Function to build a linked list from input like [1,2,3]
     static ListNode buildList(String line) {
         if (line.isEmpty()) return null;
 
@@ -44,8 +43,6 @@ public class MergeTwoSortedLists21 {
         }
         return head;
     }
-
-    // ✅ Function to merge two sorted lists
     static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);
         ListNode curr = dummy;
@@ -60,15 +57,12 @@ public class MergeTwoSortedLists21 {
             }
             curr = curr.next;
         }
-
-        // attach the remaining list
         if (l1 != null) curr.next = l1;
         if (l2 != null) curr.next = l2;
 
         return dummy.next;
     }
 
-    // ✅ Print list in [1,2,3] format
     static void printList(ListNode head) {
         ListNode temp = head;
         System.out.print("[");
