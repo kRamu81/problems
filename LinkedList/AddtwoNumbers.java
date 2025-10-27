@@ -20,25 +20,19 @@ public class AddtwoNumbers {
         Node res = addTwoNum(l1, l2);
         printList(res);
     }
+
     public static Node readList(Scanner s) {
         String line = s.nextLine().trim();
         if (line.isEmpty()) return null;
-
-        // Remove brackets and spaces
-        line = line.replaceAll("\\[|\\]|\\s", "");
-        if (line.isEmpty()) return null;
-
-        String[] parts = line.split(",");
-        Node dummy = new Node();
+        String[] parts = line.split("\\s+");
+        Node dummy = new Node(0);
         Node curr = dummy;
-
         for (String p : parts) {
             if (!p.isEmpty()) {
                 curr.next = new Node(Integer.parseInt(p));
                 curr = curr.next;
             }
         }
-
         return dummy.next;
     }
 
@@ -54,13 +48,12 @@ public class AddtwoNumbers {
     }
 
     public static Node addTwoNum(Node l1, Node l2) {
-        Node dummy = new Node();
+        Node dummy = new Node(0);
         Node curr = dummy;
         int carry = 0;
 
         while (l1 != null || l2 != null || carry != 0) {
             int sum = carry;
-
             if (l1 != null) {
                 sum += l1.val;
                 l1 = l1.next;
@@ -69,12 +62,10 @@ public class AddtwoNumbers {
                 sum += l2.val;
                 l2 = l2.next;
             }
-
             carry = sum / 10;
             curr.next = new Node(sum % 10);
             curr = curr.next;
         }
-
         return dummy.next;
     }
 }
