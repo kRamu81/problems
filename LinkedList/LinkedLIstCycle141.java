@@ -5,9 +5,9 @@ public class LinkedLIstCycle141 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         String input = s.nextLine().trim();
-        int pos = s.nextInt();
+        int p = s.nextInt();
         ListNode head = readInput(input);
-        if (pos >= 0) createCycle(head, pos);
+        if (p >= 0) createCycle(head, p);
         boolean ans = hasCycle(head);
         System.out.println(ans);
     }
