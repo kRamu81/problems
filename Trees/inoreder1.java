@@ -1,16 +1,7 @@
 package Trees;
 import java.util.*;
 
-// 1. Create a class for the TreeNode
-class TreeNode {
-    int val;
-    TreeNode left, right;
-    TreeNode(int val) {
-        this.val = val;
-        this.right = null;
-        this.left = null;
-    }
-}
+
 
 // 2. Input read and tree build
 public class inoreder1 {
@@ -19,7 +10,7 @@ public class inoreder1 {
     public static void main(String[] args) {
         String input = s.nextLine().trim();
         TreeNode root = buildTree(input);
-        Solution sol = new Solution();
+        Solution2 sol = new Solution2();
         List<Integer> result = sol.inorderTraversal(root);
 //        System.out.println(result); for list
         // for the space separated
@@ -37,7 +28,7 @@ public class inoreder1 {
 
         List<TreeNode> nodes = new ArrayList<>();
         for (String val : arr) {
-            val = val.trim();
+            val = val.trim();// to check the any base
             if (val.equals("null")) nodes.add(null);
             else nodes.add(new TreeNode(Integer.parseInt(val)));
         }
@@ -55,7 +46,7 @@ public class inoreder1 {
 }
 
 // 4. Inorder traversal
-class Solution {
+class Solution2 {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         inorder(root, res);

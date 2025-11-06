@@ -1,13 +1,6 @@
 package Trees;
 import java.util.*;
 
-class TreeNode {
-    int val;
-    TreeNode left, right;
-    TreeNode(int val) {
-        this.val = val;
-    }
-}
 
 class Solution {
     public void inorderTraversal(TreeNode root) {
@@ -22,6 +15,19 @@ class Solution {
     }
 }
 
+//preorder
+class Preorder{
+    public void preorderTraversal(TreeNode root){
+        preorder(root);
+    }
+    private void preorder(TreeNode node){
+        if(node == null) return;
+        System.out.print(node.val+" ");
+        preorder(node.left);
+        preorder(node.right);
+    }
+}
+
 public class Traversal {
     static Scanner s = new Scanner(System.in);
 
@@ -31,30 +37,37 @@ public class Traversal {
 
         Solution sol = new Solution();
         sol.inorderTraversal(root);
+
+        //preorder
+        System.out.println("\n");
+        Preorder pre = new Preorder();
+        pre.preorderTraversal(root);
     }
 
     // Build tree from LeetCode-like input [1,null,2,3]
     static TreeNode buildTree(String input) {
-        input = input.replaceAll("\\[|\\]|\\s", "");
+        input = input.replaceAll("\\[|]|\\s", "");
         if (input.isEmpty()) return null;
 
         String[] arr = input.split(",");
-        if (arr[0].equals("null")) return null;
-
         List<TreeNode> nodes = new ArrayList<>();
+
         for (String val : arr) {
+            val = val.trim();
             if (val.equals("null")) nodes.add(null);
             else nodes.add(new TreeNode(Integer.parseInt(val)));
         }
 
+        if(nodes.isEmpty()) return null;
+
         for (int i = 0, j = 1; j < nodes.size(); i++) {
             TreeNode curr = nodes.get(i);
             if (curr != null) {
-                if (j < nodes.size()) curr.left = nodes.get(j++);
+                curr.left = nodes.get(j++);
                 if (j < nodes.size()) curr.right = nodes.get(j++);
             }
         }
 
-        return nodes.get(0);
+        return nodes.getFirst();
     }
 }
