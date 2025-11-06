@@ -9,9 +9,9 @@ public class BinaryTreeRightsideView199 {
         TreeNode root = BuildTree.construct(input);
 
         Solution199 sol = new Solution199();
-        List<Integer> ans = sol.rightView(root);
+        List<Integer> res = sol.rightView(root);
 
-        for(int x : ans){
+        for(int x : res){
             System.out.print(x + " ");
         }
     }
