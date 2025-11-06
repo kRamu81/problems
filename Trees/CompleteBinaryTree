@@ -1,0 +1,78 @@
+package Trees;
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left, right;
+    TreeNode(int val) {
+        this.val = val;
+    }
+}
+
+class Solution {
+    public void inorderTraversal(TreeNode root) {
+        inorder(root);
+    }
+
+    private void inorder(TreeNode node) {
+        if (node == null) return;
+        inorder(node.left);
+        System.out.print(node.val + " ");
+        inorder(node.right);
+    }
+}
+
+// Preorder
+class Preorder {
+    public void preorderTraversal(TreeNode root) {
+        preorder(root);
+    }
+
+    private void preorder(TreeNode node) {
+        if (node == null) return;
+        System.out.print(node.val + " ");
+        preorder(node.left);
+        preorder(node.right);
+    }
+}
+
+public class CompleteBinaryTree{
+    static Scanner s = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        // Example input: 1 2 3 4 5
+        String input = s.nextLine().trim();
+        TreeNode root = buildTree(input);
+
+        System.out.println("Inorder Traversal:");
+        new Solution().inorderTraversal(root);
+
+        System.out.println("\nPreorder Traversal:");
+        new Preorder().preorderTraversal(root);
+    }
+
+    // Build complete binary tree from input like "1 2 3 4 5"
+    static TreeNode buildTree(String input) {
+        input = input.replaceAll("\\s+", " ").trim(); // ✅ just normalize spaces
+        if (input.isEmpty()) return null;
+
+        String[] arr = input.split(" ");
+        List<TreeNode> nodes = new ArrayList<>();
+
+        for (String val : arr) {
+            nodes.add(new TreeNode(Integer.parseInt(val)));
+        }
+
+        for (int i = 0; i < nodes.size(); i++) {
+            int leftIndex = 2 * i + 1;
+            int rightIndex = 2 * i + 2;
+
+            if (leftIndex < nodes.size())
+                nodes.get(i).left = nodes.get(leftIndex);
+            if (rightIndex < nodes.size())
+                nodes.get(i).right = nodes.get(rightIndex);
+        }
+
+        return nodes.get(0);
+    }
+}
