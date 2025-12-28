@@ -2,7 +2,7 @@ package Recursion.Backtracking;
 
 import java.util.*;
 
-class Solution {
+class Solution1 {
 
     int count = 0;
     char[][] board;
@@ -65,7 +65,7 @@ class Solution {
 // For local testing (optional)
 public class Nqueen52 {
     public static void main(String[] args) {
-        Solution s = new Solution();
+        Solution1 s = new Solution1();
         System.out.println(s.totalNQueens(4));
     }
 }
